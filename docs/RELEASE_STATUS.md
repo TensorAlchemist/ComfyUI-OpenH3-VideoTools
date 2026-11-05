@@ -1,15 +1,12 @@
-# Version 0.1.8 pre-release
+# Version 0.1.9 pre-release
 
-This publication packages the installed 0.1.8 helper source and the current editable manual-output workflow. Runtime compatibility of the publication copy remains unverified.
+This release provides OpenH3 VideoTools, standard publisher model selections and an editable manual-output workflow.
 
-- Source-aspect preparation uses only 16-pixel VAE alignment padding.
-- Output width and height are editable in the latent upscale node.
-- The input helper retains seven outputs and has no output-size multiplier.
+- Source preparation preserves displayed aspect with minimal VAE alignment padding.
+- Width and height are manually editable in the latent upscale node.
 - The optional input frame cap is disabled at zero; memory and decoder limits remain.
-- No new tests, imports, compilation, inference, UI checks, model conversions or CI checks were run for publication.
-- The earlier 40 CPU checks were performed on version 0.1.6, not this version.
-- The latest 0.1.8/manual-output configuration has not completed a full render. Earlier render evidence does not establish its quality, memory use or speed.
+- The helper retains its existing technical node IDs and seven preparation outputs.
+- No tests, imports, compilation, inference, UI checks or CI were run for this update.
+- The current configuration has not completed a full render. Runtime compatibility, quality, speed and memory use remain unverified.
 
-Publication-only source changes neutralize display labels and a missing-dependency message, add repository metadata, and preserve technical node IDs and legal attribution. The converter copy replaces a depth-dependent fallback path and uses exclusive hardlink publication to prevent replacement of an existing destination on Windows or POSIX. These converter changes received source review only; they were not executed for this release.
-
-No model weights, media, local logs, private receipts, backups, user profile information or CI pipelines are part of the repository.
+No weights, media, local logs, private receipts, backups, user profile information or CI pipelines are included. Helper licenses and third-party attributions are retained.

@@ -91,9 +91,9 @@ class TAOpenH3RefineRelease(io.ComfyNode):
                 io.Combo.Input("unet_name", options=_file_choices(
                     "diffusion_models", "Minimax-h3_Singularity_ref2va_v2_pruned_int8.safetensors")),
                 io.Combo.Input("main_lora", options=_file_choices(
-                    "loras", "open_h3_regenerate_2k_lora_fp16.safetensors")),
+                    "loras", "open_h3_regenerate_2k_lora.safetensors")),
                 io.Combo.Input("curve_branches", options=_file_choices(
-                    "open_h3_regenerate", "sharp_curve_branches_fp16.safetensors")),
+                    "open_h3_regenerate", "sharp_curve_branches.safetensors")),
                 io.Float.Input("strength", default=1.0, min=0.0, max=1.5, step=0.01),
                 io.Int.Input("head_chunks", default=4, min=1, max=56, step=1),
                 io.Int.Input("ff_chunks", default=4, min=1, max=64, step=1),
