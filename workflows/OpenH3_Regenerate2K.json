@@ -1,0 +1,2139 @@
+{
+  "id": "3efd4ff0-0b1a-4a0f-8e08-ce8fc3d58aec",
+  "revision": 2,
+  "last_node_id": 1063,
+  "last_link_id": 83,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        -32.85178502741875,
+        1243.0196114086746
+      ],
+      "size": [
+        455.7142857142867,
+        90.55557686942007
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            5,
+            28
+          ]
+        }
+      ],
+      "title": "Video VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_int8_convrot.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+      },
+      "color": "#21413c",
+      "bgcolor": "#345e56"
+    },
+    {
+      "id": 5,
+      "type": "VAEEncode",
+      "pos": [
+        444.82928600239853,
+        1227.7172072910596
+      ],
+      "size": [
+        315.11484375,
+        85
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "pixels",
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "title": "Encode Video",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "VAEEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "color": "#21413c",
+      "bgcolor": "#345e56"
+    },
+    {
+      "id": 6,
+      "type": "MiniMaxH3LatentUpscaleWithModel",
+      "pos": [
+        792.9098998525621,
+        1235.6005966437094
+      ],
+      "size": [
+        292.52890625,
+        122.2736031078939
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "LATENT_UPSCALE_MODEL",
+          "link": 6
+        },
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "title": "Upscale Latent",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "MiniMaxH3LatentUpscaleWithModel",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "color": "#21413c",
+      "bgcolor": "#345e56",
+      "widgets_values": [
+        2560,
+        1440
+      ],
+      "widgets_values_named": {
+        "width": 2560,
+        "height": 1440
+      }
+    },
+    {
+      "id": 7,
+      "type": "VAELoader",
+      "pos": [
+        -18.445318807904904,
+        1655.7980055791543
+      ],
+      "size": [
+        421.12540972028455,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "title": "Audio VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      },
+      "color": "#21413c",
+      "bgcolor": "#345e56"
+    },
+    {
+      "id": 8,
+      "type": "VAEEncodeAudio",
+      "pos": [
+        426.2757336298715,
+        1637.6413835994558
+      ],
+      "size": [
+        302.632421875,
+        67.9628695322674
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 8
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "title": "Encode Conditioning Audio",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "VAEEncodeAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "color": "#21413c",
+      "bgcolor": "#345e56"
+    },
+    {
+      "id": 9,
+      "type": "LTXVConcatAVLatent",
+      "pos": [
+        755.3771024932399,
+        1613.741881963917
+      ],
+      "size": [
+        350.593359375,
+        92.79336704222669
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video_latent",
+          "name": "video_latent",
+          "type": "LATENT",
+          "link": 10
+        },
+        {
+          "localized_name": "audio_latent",
+          "name": "audio_latent",
+          "type": "LATENT",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "title": "Combine Video and Audio Latents",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "LTXVConcatAVLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "color": "#21413c",
+      "bgcolor": "#345e56"
+    },
+    {
+      "id": 10,
+      "type": "OpenH3LockAudioForRefine",
+      "pos": [
+        589.7540879805664,
+        1436.4562656435965
+      ],
+      "size": [
+        450,
+        115
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "av_latent",
+          "name": "av_latent",
+          "type": "LATENT",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "title": "Lock Audio",
+      "properties": {
+        "aux_id": "Songssx/ComfyUI-OpenH3-Regenerate2K",
+        "ver": "adf6af360d8f3cfaa473ef2ed254d7a787bfb169",
+        "Node name for S&R": "OpenH3LockAudioForRefine",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "color": "#21413c",
+      "bgcolor": "#345e56"
+    },
+    {
+      "id": 12,
+      "type": "TAOpenH3PromptEncodeRelease",
+      "pos": [
+        579.2929909446028,
+        73.65801526354497
+      ],
+      "size": [
+        528.6176280628588,
+        649.0764321859764
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Node name for S&R": "TAOpenH3PromptEncodeRelease",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "integrated_multimodal_description:\nPreserve the supplied video's original content and visual style. Keep the same subjects, identities, proportions, objects, composition, colors, lighting, actions, camera movement, shot sequence, and timing. Refine only details supported by the source, maintaining consistent edges and textures across frames. Retain the original degree of stylization and existing text and graphics.\n\noverall_soundscape:\nPreserve the source soundtrack and its timing.\n\nnon_diegetic_music:\nPreserve any music already present in the source."
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "text": "integrated_multimodal_description:\nPreserve the supplied video's original content and visual style. Keep the same subjects, identities, proportions, objects, composition, colors, lighting, actions, camera movement, shot sequence, and timing. Refine only details supported by the source, maintaining consistent edges and textures across frames. Retain the original degree of stylization and existing text and graphics.\n\noverall_soundscape:\nPreserve the source soundtrack and its timing.\n\nnon_diegetic_music:\nPreserve any music already present in the source."
+      },
+      "color": "#3b2d50",
+      "bgcolor": "#594372"
+    },
+    {
+      "id": 20,
+      "type": "RandomNoise",
+      "pos": [
+        1176.9108694420822,
+        74.11097048466166
+      ],
+      "size": [
+        480.7360364245137,
+        107.78497076653827
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "noise_seed",
+          "name": "noise_seed",
+          "type": "INT",
+          "widget": {
+            "name": "noise_seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "NOISE",
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "RandomNoise",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        2026110101,
+        "fixed"
+      ],
+      "widgets_values_named": {
+        "noise_seed": 2026110101,
+        "control_after_generate": "fixed"
+      },
+      "color": "#4a3827",
+      "bgcolor": "#6b5036"
+    },
+    {
+      "id": 21,
+      "type": "KSamplerSelect",
+      "pos": [
+        1178.3538356555555,
+        247.93494192337894
+      ],
+      "size": [
+        476.406820718345,
+        102.01298701298708
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "SAMPLER",
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "title": "Sampler",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "KSamplerSelect",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "res_multistep"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "res_multistep"
+      },
+      "color": "#4a3827",
+      "bgcolor": "#6b5036"
+    },
+    {
+      "id": 22,
+      "type": "OpenH3RegenerateSigmas",
+      "pos": [
+        1179.7968018690308,
+        423.20187957556914
+      ],
+      "size": [
+        472.07792207792295,
+        90.46901950588506
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "COMBO",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "SIGMAS",
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "title": "Refinement Schedule",
+      "properties": {
+        "aux_id": "Songssx/ComfyUI-OpenH3-Regenerate2K",
+        "ver": "adf6af360d8f3cfaa473ef2ed254d7a787bfb169",
+        "Node name for S&R": "OpenH3RegenerateSigmas",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "2"
+      ],
+      "widgets_values_named": {
+        "steps": "2"
+      },
+      "color": "#4a3827",
+      "bgcolor": "#6b5036"
+    },
+    {
+      "id": 24,
+      "type": "LTXVSeparateAVLatent",
+      "pos": [
+        1187.5097091120863,
+        1092.9244196078118
+      ],
+      "size": [
+        389.6461479230627,
+        124.29590138462618
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "av_latent",
+          "name": "av_latent",
+          "type": "LATENT",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "video_latent",
+          "name": "video_latent",
+          "type": "LATENT",
+          "links": [
+            27,
+            32
+          ]
+        },
+        {
+          "localized_name": "audio_latent",
+          "name": "audio_latent",
+          "type": "LATENT",
+          "links": [
+            33
+          ]
+        }
+      ],
+      "title": "Separate Video and Audio Latents",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "LTXVSeparateAVLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "color": "#254536",
+      "bgcolor": "#3a634c"
+    },
+    {
+      "id": 25,
+      "type": "TAOpenH3VAEDecodeLowMemory",
+      "pos": [
+        1830.9521983875072,
+        842.3335270198188
+      ],
+      "size": [
+        373.37838432966146,
+        107.67602465384346
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 28
+        },
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "title": "Decode Video",
+      "properties": {
+        "Node name for S&R": "TAOpenH3VAEDecodeLowMemory",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "color": "#254536",
+      "bgcolor": "#3a634c"
+    },
+    {
+      "id": 26,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1635,
+        1170
+      ],
+      "size": [
+        771,
+        334
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 83
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 30
+        },
+        {
+          "localized_name": "meta_batch",
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "localized_name": "frame_rate",
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": 81
+        },
+        {
+          "localized_name": "loop_count",
+          "name": "loop_count",
+          "type": "INT",
+          "widget": {
+            "name": "loop_count"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "format",
+          "name": "format",
+          "type": "COMBO",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pingpong",
+          "name": "pingpong",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "pingpong"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "save_output",
+          "name": "save_output",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "save_output"
+          },
+          "link": null
+        },
+        {
+          "name": "pix_fmt",
+          "type": [
+            "yuv420p",
+            "yuv420p10le"
+          ],
+          "widget": {
+            "name": "pix_fmt"
+          },
+          "link": null
+        },
+        {
+          "name": "bitrate",
+          "type": "INT",
+          "widget": {
+            "name": "bitrate"
+          },
+          "link": null
+        },
+        {
+          "name": "megabit",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "megabit"
+          },
+          "link": null
+        },
+        {
+          "name": "save_metadata",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "save_metadata"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "Filenames",
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": []
+        }
+      ],
+      "title": "Save Video",
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "4d907bee61e92c2e65af3bd6383a4e4d356126d1",
+        "Node name for S&R": "VHS_VideoCombine",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "frame_rate": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "OpenH3_2K/Video",
+        "format": "video/nvenc_h264-mp4",
+        "pix_fmt": "yuv420p",
+        "bitrate": 35,
+        "megabit": true,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {}
+        }
+      },
+      "widgets_values_named": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "OpenH3_2K/Video",
+        "format": "video/nvenc_h264-mp4",
+        "pix_fmt": "yuv420p",
+        "bitrate": 35,
+        "megabit": true,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {}
+        }
+      },
+      "color": "#205741",
+      "bgcolor": "#2d7657"
+    },
+    {
+      "id": 27,
+      "type": "PreviewAny",
+      "pos": [
+        1178.839551554359,
+        788.8160215702485
+      ],
+      "size": [
+        484.9288179670068,
+        231.61981290108804
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Adapter Report",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "PreviewAny",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "color": "#254536",
+      "bgcolor": "#3a634c"
+    },
+    {
+      "id": 28,
+      "type": "SaveLatent",
+      "pos": [
+        1202.0790496971454,
+        1285.6457112021235
+      ],
+      "size": [
+        401.26621614292844,
+        87.11242350551106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 22,
+      "mode": 2,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 32
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "Save Video Latent (Muted)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "SaveLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "OpenH3_2K/Diagnostic/Refined_video"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "OpenH3_2K/Diagnostic/Refined_video"
+      },
+      "color": "#33383e",
+      "bgcolor": "#454c55"
+    },
+    {
+      "id": 29,
+      "type": "SaveLatent",
+      "pos": [
+        1201.52676260045,
+        1421.7089590189119
+      ],
+      "size": [
+        403.59000000000174,
+        80.14043363734686
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 23,
+      "mode": 2,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 33
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "Save Audio Latent (Muted)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "SaveLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "OpenH3_2K/Diagnostic/Locked_audio"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "OpenH3_2K/Diagnostic/Locked_audio"
+      },
+      "color": "#33383e",
+      "bgcolor": "#454c55"
+    },
+    {
+      "id": 30,
+      "type": "LatentUpscaleModelLoader",
+      "pos": [
+        -28.605810157741423,
+        1427.6713873365102
+      ],
+      "size": [
+        479.1617473435663,
+        115
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "model_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT_UPSCALE_MODEL",
+          "name": "LATENT_UPSCALE_MODEL",
+          "type": "LATENT_UPSCALE_MODEL",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "title": "Latent Upscale Model",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "LatentUpscaleModelLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "minimax_h3_latent_upscaler_3d_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "model_name": "minimax_h3_latent_upscaler_3d_bf16.safetensors"
+      },
+      "color": "#21413c",
+      "bgcolor": "#345e56"
+    },
+    {
+      "id": 900,
+      "type": "MarkdownNote",
+      "pos": [
+        0,
+        -470
+      ],
+      "size": [
+        550,
+        390
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Input Preparation",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Input geometry and duration are detected automatically from the uploaded video. Rotation, pixel aspect ratio, source_scale and minimal 16-pixel VAE alignment padding remain unchanged. No widescreen input canvas is imposed.\n\nSet the exact OUTPUT width and height manually in Upscale Latent. Examples: 1280 x 736, 1920 x 1088, 2560 x 1440, or portrait dimensions such as 1440 x 2560. Use dimensions supported by the model, normally multiples of 32. The displayed numbers are editable starting values; no automatic-size connection overrides them.\n\nOutput-size edits do not change automatic input sizing or source duration."
+      ],
+      "widgets_values_named": {
+        "text": "Input geometry and duration are detected automatically from the uploaded video. Rotation, pixel aspect ratio, source_scale and minimal 16-pixel VAE alignment padding remain unchanged. No widescreen input canvas is imposed.\n\nSet the exact OUTPUT width and height manually in Upscale Latent. Examples: 1280 x 736, 1920 x 1088, 2560 x 1440, or portrait dimensions such as 1440 x 2560. Use dimensions supported by the model, normally multiples of 32. The displayed numbers are editable starting values; no automatic-size connection overrides them.\n\nOutput-size edits do not change automatic input sizing or source duration."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 901,
+      "type": "MarkdownNote",
+      "pos": [
+        575,
+        -470
+      ],
+      "size": [
+        550,
+        390
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Frame Count and Audio",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Duration is measured from decoded source frames. max_frames = 0 reads the complete clip; a positive value sets an optional limit and rejects an overlong clip without trimming it.\n\nPreparation converts timestamps to the model's 24 FPS cadence, pads internal context by repeating the final frame, and aligns conditioning audio. The final frame-range node removes internal padding. Duration is quantized within one 24 FPS frame.\n\nSource audio is muxed when present. Silent input produces silent output without adding the internal conditioning track."
+      ],
+      "widgets_values_named": {
+        "text": "Duration is measured from decoded source frames. max_frames = 0 reads the complete clip; a positive value sets an optional limit and rejects an overlong clip without trimming it.\n\nPreparation converts timestamps to the model's 24 FPS cadence, pads internal context by repeating the final frame, and aligns conditioning audio. The final frame-range node removes internal padding. Duration is quantized within one 24 FPS frame.\n\nSource audio is muxed when present. Silent input produces silent output without adding the internal conditioning track."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 902,
+      "type": "MarkdownNote",
+      "pos": [
+        1150,
+        -470
+      ],
+      "size": [
+        1250,
+        390
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Requirements",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Requires the bundled input/refinement helper version 0.1.8, compatible ComfyUI MiniMax H3 support, OpenH3-Regenerate2K, KJNodes and VideoHelperSuite. Use your normal ComfyUI launcher.\n\nOnly output width and height are manual. Input sizing and source duration remain automatic. max_frames = 0 disables the optional input limit. Larger output dimensions and longer clips require more memory.\n\nOutput is NVENC H.264 MP4 with source audio when present. Both diagnostic latent-save nodes are muted. Model selections, two-step refinement and audio locking are retained."
+      ],
+      "widgets_values_named": {
+        "text": "Requires the bundled input/refinement helper version 0.1.8, compatible ComfyUI MiniMax H3 support, OpenH3-Regenerate2K, KJNodes and VideoHelperSuite. Use your normal ComfyUI launcher.\n\nOnly output width and height are manual. Input sizing and source duration remain automatic. max_frames = 0 disables the optional input limit. Larger output dimensions and longer clips require more memory.\n\nOutput is NVENC H.264 MP4 with source audio when present. Both diagnostic latent-save nodes are muted. Model selections, two-step refinement and audio locking are retained."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 13,
+      "type": "TAOpenH3RefineRelease",
+      "pos": [
+        1688.9671451008232,
+        59.609423518263036
+      ],
+      "size": [
+        609.1022238834285,
+        509.36518406374205
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "av_latent",
+          "name": "av_latent",
+          "type": "LATENT",
+          "link": 25
+        },
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 20
+        },
+        {
+          "localized_name": "noise",
+          "name": "noise",
+          "type": "NOISE",
+          "link": 21
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 23
+        },
+        {
+          "localized_name": "sigmas",
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 24
+        },
+        {
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_lora",
+          "name": "main_lora",
+          "type": "COMBO",
+          "widget": {
+            "name": "main_lora"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "curve_branches",
+          "name": "curve_branches",
+          "type": "COMBO",
+          "widget": {
+            "name": "curve_branches"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength",
+          "name": "strength",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "head_chunks",
+          "name": "head_chunks",
+          "type": "INT",
+          "widget": {
+            "name": "head_chunks"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "ff_chunks",
+          "name": "ff_chunks",
+          "type": "INT",
+          "widget": {
+            "name": "ff_chunks"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seq_threshold",
+          "name": "seq_threshold",
+          "type": "INT",
+          "widget": {
+            "name": "seq_threshold"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enable_tiling",
+          "name": "enable_tiling",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enable_tiling"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "method",
+          "name": "method",
+          "type": "COMBO",
+          "widget": {
+            "name": "method"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "tile_width",
+          "name": "tile_width",
+          "type": "INT",
+          "widget": {
+            "name": "tile_width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "tile_height",
+          "name": "tile_height",
+          "type": "INT",
+          "widget": {
+            "name": "tile_height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "tile_overlap",
+          "name": "tile_overlap",
+          "type": "INT",
+          "widget": {
+            "name": "tile_overlap"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "denoised_av_latent",
+          "name": "denoised_av_latent",
+          "type": "LATENT",
+          "links": [
+            26
+          ]
+        },
+        {
+          "localized_name": "adapter_report",
+          "name": "adapter_report",
+          "type": "STRING",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "title": "Refine Latent",
+      "properties": {
+        "Node name for S&R": "TAOpenH3RefineRelease",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Minimax-h3_Singularity_ref2va_v2_pruned_int8.safetensors",
+        "open_h3_regenerate_2k_lora_fp16.safetensors",
+        "lora\\sharp_curve_branches_fp16.safetensors",
+        1,
+        4,
+        4,
+        4096,
+        true,
+        "gaussian",
+        1024,
+        832,
+        224
+      ],
+      "widgets_values_named": {
+        "unet_name": "Minimax-h3_Singularity_ref2va_v2_pruned_int8.safetensors",
+        "main_lora": "open_h3_regenerate_2k_lora_fp16.safetensors",
+        "curve_branches": "lora\\sharp_curve_branches_fp16.safetensors",
+        "strength": 1,
+        "head_chunks": 4,
+        "ff_chunks": 4,
+        "seq_threshold": 4096,
+        "enable_tiling": true,
+        "method": "gaussian",
+        "tile_width": 1024,
+        "tile_height": 832,
+        "tile_overlap": 224
+      },
+      "color": "#4a3827",
+      "bgcolor": "#6b5036"
+    },
+    {
+      "id": 1,
+      "type": "LoadVideo",
+      "pos": [
+        0,
+        65
+      ],
+      "size": [
+        550,
+        390
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "file",
+          "name": "file",
+          "type": "COMBO",
+          "widget": {
+            "name": "file"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VIDEO",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            79
+          ]
+        }
+      ],
+      "title": "Load Video",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "LoadVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "image"
+      ],
+      "widgets_values_named": {
+        "file": "",
+        "upload": "image"
+      },
+      "color": "#1e3a56",
+      "bgcolor": "#2b4f73"
+    },
+    {
+      "id": 1060,
+      "type": "TAOpenH3AutoInput",
+      "pos": [
+        0,
+        530
+      ],
+      "size": [
+        550,
+        230
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 79
+        },
+        {
+          "localized_name": "max_frames",
+          "name": "max_frames",
+          "type": "INT",
+          "widget": {
+            "name": "max_frames"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "working_resolution",
+          "name": "working_resolution",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "working_resolution"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "source_scale",
+          "name": "source_scale",
+          "type": "FLOAT",
+          "widget": {
+            "name": "source_scale"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prepared_images",
+          "name": "prepared_images",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        },
+        {
+          "localized_name": "conditioning_audio",
+          "name": "conditioning_audio",
+          "type": "AUDIO",
+          "links": [
+            8
+          ]
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "type": "AUDIO",
+          "links": [
+            30
+          ]
+        },
+        {
+          "localized_name": "actual_frame_count",
+          "name": "actual_frame_count",
+          "type": "INT",
+          "links": [
+            80
+          ]
+        },
+        {
+          "localized_name": "fps",
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            81
+          ]
+        },
+        {
+          "localized_name": "duration",
+          "name": "duration",
+          "type": "FLOAT",
+          "links": []
+        },
+        {
+          "localized_name": "report",
+          "name": "report",
+          "type": "STRING",
+          "links": [
+            82
+          ]
+        }
+      ],
+      "title": "Prepare Video",
+      "properties": {
+        "Node name for S&R": "TAOpenH3AutoInput",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        0,
+        "source",
+        1
+      ],
+      "widgets_values_named": {
+        "max_frames": 0,
+        "working_resolution": "source",
+        "source_scale": 1
+      },
+      "color": "#1e3a56",
+      "bgcolor": "#2b4f73"
+    },
+    {
+      "id": 1061,
+      "type": "GetImageRangeFromBatch",
+      "pos": [
+        1815,
+        990
+      ],
+      "size": [
+        580,
+        120
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 29
+        },
+        {
+          "localized_name": "masks",
+          "name": "masks",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "start_index",
+          "name": "start_index",
+          "type": "INT",
+          "widget": {
+            "name": "start_index"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "num_frames",
+          "name": "num_frames",
+          "type": "INT",
+          "widget": {
+            "name": "num_frames"
+          },
+          "link": 80
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            83
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "Remove Frame Padding",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "e8e88f7c88e3f6205b122f5de87e69a09fbce5ac",
+        "Node name for S&R": "GetImageRangeFromBatch",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "num_frames": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        0,
+        1
+      ],
+      "widgets_values_named": {
+        "start_index": 0,
+        "num_frames": 1
+      },
+      "color": "#254536",
+      "bgcolor": "#3a634c"
+    },
+    {
+      "id": 1062,
+      "type": "PreviewAny",
+      "pos": [
+        0,
+        830
+      ],
+      "size": [
+        550,
+        245
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 82
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Input Report",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.43.0",
+        "Node name for S&R": "PreviewAny",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "color": "#1e3a56",
+      "bgcolor": "#2b4f73"
+    },
+    {
+      "id": 1063,
+      "type": "MarkdownNote",
+      "pos": [
+        -720,
+        -470
+      ],
+      "size": [
+        620,
+        2180
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Model and Node Downloads",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "# Models and Custom Nodes\nPaths below are relative to your ComfyUI folder. Weights are downloaded separately.\n\n## models/diffusion_models/\n[Singularity V2 pruned INT8](https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity/resolve/1259cf16cd0b655ba691a32fb46a409142762972/Minimax-h3_Singularity_ref2va_v2_pruned_int8.safetensors?download=true)\n\n## models/text_encoders/\n[Qwen3-VL 32B MiniMax H3 NVFP4 AWQ](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors?download=true)\n\n## models/vae/\n[MiniMax H3 video VAE INT8 ConvRot](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_int8_convrot.safetensors?download=true)\n\n[MiniMax H3 audio VAE FP32](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors?download=true)\n\n## models/latent_upscale_models/\n[Native learned latent upscaler BF16](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/latent_upsampler/minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors?download=true)\n\nPublisher filename: minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors. Select it in the loader, or rename these identical bytes to the selected local alias: minimax_h3_latent_upscaler_3d_bf16.safetensors. No precision conversion is needed for this file.\n\n## models/loras/\n[Main refinement adapter: original FP32](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/lora/open_h3_regenerate_2k_lora.safetensors?download=true)\n\n## models/open_h3_regenerate/lora/\n[Sharp curve branches: original FP32](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/lora/sharp_curve_branches.safetensors?download=true)\n\n## Required FP16 adapter copies\nThis workflow selects open_h3_regenerate_2k_lora_fp16.safetensors and lora/sharp_curve_branches_fp16.safetensors. The two links above download the publisher's FP32 originals. Renaming them does not convert them.\n\nUse [OpenH3 VideoTools](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools): docs/REPRODUCE_FP16.txt and tools/convert_fp16.py. Run the converter with your ComfyUI Python as described there. It checks the exact original hashes and preserves the source files. Existing valid FP16 copies can be reused. \n\n## Required custom nodes\n[OpenH3-Regenerate2K by Songssx](https://github.com/Songssx/ComfyUI-OpenH3-Regenerate2K)\n\n[KJNodes](https://github.com/kijai/ComfyUI-KJNodes)\n\n[VideoHelperSuite](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite)\n\n[Current ComfyUI with native MiniMax H3 support](https://github.com/Comfy-Org/ComfyUI)\n\nInstall [OpenH3 VideoTools 0.1.8 pre-release](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools) as ComfyUI/custom_nodes/ComfyUI-OpenH3-VideoTools, with __init__.py directly inside that repository folder. Keep one active copy. Python 3.12+, PyAV and imageio-ffmpeg are required; see its requirements.txt. The selected export also requires working NVIDIA NVENC support.\n\n## Prompt\nThe Prompt node contains a general preservation prompt for photo, anime, CG and other source styles. You can run it as supplied. For stronger scene guidance, add a short, accurate description inside integrated_multimodal_description. This text encoder does not analyze the upload. Generative reconstruction can still change details, text or motion; review the result.\n\nSet OUTPUT width and height directly in Upscale Latent. Both fields are editable and have no automatic-size connections. Input sizing and duration remain automatic and unchanged. source_scale adjusts working input size; max_frames = 0 disables the optional input-frame limit. Timing follows the model's 24 FPS cadence. Version 0.1.8 is a pre-release; no new tests or full render of this manual-output configuration are claimed.\n\n## Component sources and terms\n[Official OpenH3 project](https://nvlabs.github.io/Sana/Open-H3-Regenerate-2K/)\n\n[Singularity model card and terms](https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity)\n\n[MiniMax H3 community license](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/6818f6c32d12b210915e44ad56a4228c2608f160/LICENSE)\n\nEach component retains its own license.\n"
+      ],
+      "widgets_values_named": {
+        "text": "# Models and Custom Nodes\nPaths below are relative to your ComfyUI folder. Weights are downloaded separately.\n\n## models/diffusion_models/\n[Singularity V2 pruned INT8](https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity/resolve/1259cf16cd0b655ba691a32fb46a409142762972/Minimax-h3_Singularity_ref2va_v2_pruned_int8.safetensors?download=true)\n\n## models/text_encoders/\n[Qwen3-VL 32B MiniMax H3 NVFP4 AWQ](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors?download=true)\n\n## models/vae/\n[MiniMax H3 video VAE INT8 ConvRot](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_int8_convrot.safetensors?download=true)\n\n[MiniMax H3 audio VAE FP32](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors?download=true)\n\n## models/latent_upscale_models/\n[Native learned latent upscaler BF16](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/latent_upsampler/minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors?download=true)\n\nPublisher filename: minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors. Select it in the loader, or rename these identical bytes to the selected local alias: minimax_h3_latent_upscaler_3d_bf16.safetensors. No precision conversion is needed for this file.\n\n## models/loras/\n[Main refinement adapter: original FP32](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/lora/open_h3_regenerate_2k_lora.safetensors?download=true)\n\n## models/open_h3_regenerate/lora/\n[Sharp curve branches: original FP32](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/lora/sharp_curve_branches.safetensors?download=true)\n\n## Required FP16 adapter copies\nThis workflow selects open_h3_regenerate_2k_lora_fp16.safetensors and lora/sharp_curve_branches_fp16.safetensors. The two links above download the publisher's FP32 originals. Renaming them does not convert them.\n\nUse [OpenH3 VideoTools](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools): docs/REPRODUCE_FP16.txt and tools/convert_fp16.py. Run the converter with your ComfyUI Python as described there. It checks the exact original hashes and preserves the source files. Existing valid FP16 copies can be reused. \n\n## Required custom nodes\n[OpenH3-Regenerate2K by Songssx](https://github.com/Songssx/ComfyUI-OpenH3-Regenerate2K)\n\n[KJNodes](https://github.com/kijai/ComfyUI-KJNodes)\n\n[VideoHelperSuite](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite)\n\n[Current ComfyUI with native MiniMax H3 support](https://github.com/Comfy-Org/ComfyUI)\n\nInstall [OpenH3 VideoTools 0.1.8 pre-release](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools) as ComfyUI/custom_nodes/ComfyUI-OpenH3-VideoTools, with __init__.py directly inside that repository folder. Keep one active copy. Python 3.12+, PyAV and imageio-ffmpeg are required; see its requirements.txt. The selected export also requires working NVIDIA NVENC support.\n\n## Prompt\nThe Prompt node contains a general preservation prompt for photo, anime, CG and other source styles. You can run it as supplied. For stronger scene guidance, add a short, accurate description inside integrated_multimodal_description. This text encoder does not analyze the upload. Generative reconstruction can still change details, text or motion; review the result.\n\nSet OUTPUT width and height directly in Upscale Latent. Both fields are editable and have no automatic-size connections. Input sizing and duration remain automatic and unchanged. source_scale adjusts working input size; max_frames = 0 disables the optional input-frame limit. Timing follows the model's 24 FPS cadence. Version 0.1.8 is a pre-release; no new tests or full render of this manual-output configuration are claimed.\n\n## Component sources and terms\n[Official OpenH3 project](https://nvlabs.github.io/Sana/Open-H3-Regenerate-2K/)\n\n[Singularity model card and terms](https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity)\n\n[MiniMax H3 community license](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/6818f6c32d12b210915e44ad56a4228c2608f160/LICENSE)\n\nEach component retains its own license.\n"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    }
+  ],
+  "links": [
+    [
+      5,
+      4,
+      0,
+      5,
+      1,
+      "VAE"
+    ],
+    [
+      6,
+      30,
+      0,
+      6,
+      0,
+      "LATENT_UPSCALE_MODEL"
+    ],
+    [
+      7,
+      5,
+      0,
+      6,
+      1,
+      "LATENT"
+    ],
+    [
+      9,
+      7,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      6,
+      0,
+      9,
+      0,
+      "LATENT"
+    ],
+    [
+      11,
+      8,
+      0,
+      9,
+      1,
+      "LATENT"
+    ],
+    [
+      12,
+      9,
+      0,
+      10,
+      0,
+      "LATENT"
+    ],
+    [
+      20,
+      12,
+      0,
+      13,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      21,
+      20,
+      0,
+      13,
+      2,
+      "NOISE"
+    ],
+    [
+      23,
+      21,
+      0,
+      13,
+      3,
+      "SAMPLER"
+    ],
+    [
+      24,
+      22,
+      0,
+      13,
+      4,
+      "SIGMAS"
+    ],
+    [
+      25,
+      10,
+      0,
+      13,
+      0,
+      "LATENT"
+    ],
+    [
+      26,
+      13,
+      0,
+      24,
+      0,
+      "LATENT"
+    ],
+    [
+      27,
+      24,
+      0,
+      25,
+      1,
+      "LATENT"
+    ],
+    [
+      28,
+      4,
+      0,
+      25,
+      0,
+      "VAE"
+    ],
+    [
+      31,
+      13,
+      1,
+      27,
+      0,
+      "STRING"
+    ],
+    [
+      32,
+      24,
+      0,
+      28,
+      0,
+      "LATENT"
+    ],
+    [
+      33,
+      24,
+      1,
+      29,
+      0,
+      "LATENT"
+    ],
+    [
+      79,
+      1,
+      0,
+      1060,
+      0,
+      "VIDEO"
+    ],
+    [
+      4,
+      1060,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      1060,
+      1,
+      8,
+      0,
+      "AUDIO"
+    ],
+    [
+      30,
+      1060,
+      2,
+      26,
+      1,
+      "AUDIO"
+    ],
+    [
+      80,
+      1060,
+      3,
+      1061,
+      3,
+      "INT"
+    ],
+    [
+      81,
+      1060,
+      4,
+      26,
+      4,
+      "FLOAT"
+    ],
+    [
+      82,
+      1060,
+      6,
+      1062,
+      0,
+      "STRING"
+    ],
+    [
+      29,
+      25,
+      0,
+      1061,
+      0,
+      "IMAGE"
+    ],
+    [
+      83,
+      1061,
+      0,
+      26,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "1. Input and Prompt",
+      "bounding": [
+        -35,
+        0,
+        1156.7734956023032,
+        1124.5929973651835
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "2. Encode and Upscale",
+      "bounding": [
+        -46.52384469168514,
+        1151.9841387067522,
+        1165.6650228921567,
+        625.6840119597243
+      ],
+      "color": "#47755b",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "3. Refinement",
+      "bounding": [
+        1141.910869442082,
+        9.110970484661838,
+        1306.0986591222013,
+        700.2472940954649
+      ],
+      "color": "#b1873f",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "4. Decode and Save",
+      "bounding": [
+        1143.8395515543586,
+        723.816021570248,
+        1314.6687334165988,
+        1052.7888927557276
+      ],
+      "color": "#4e8c63",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.57.6",
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 0.37,
+      "offset": [
+        890,
+        610
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": []
+  },
+  "version": 0.4
+}

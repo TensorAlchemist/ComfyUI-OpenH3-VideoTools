@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-openh3-video-tools"
+version = "0.1.8"
+description = "Open-H3 tiled refinement, model release and bounded automatic video input."
+license = "GPL-3.0-only"
+requires-python = ">=3.12"
+dependencies = ["av>=16.0.0", "imageio-ffmpeg>=0.6.0"]
+
+[project.urls]
+Repository = "https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools"
+Issues = "https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools/issues"
+
+[tool.comfy]
+DisplayName = "OpenH3 VideoTools"
