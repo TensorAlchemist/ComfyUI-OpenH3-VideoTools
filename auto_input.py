@@ -50,6 +50,10 @@ class TAOpenH3AutoInput(io.ComfyNode):
         validate_working_resolution(working_resolution)
         validate_frame_limit(max_frames)
         validate_source_scale(source_scale)
+        if video is None:
+            # Cache fingerprinting receives None for linked runtime inputs.
+            # The core cache also includes LoadVideo's filename/mtime signature.
+            return (VERSION, max_frames, working_resolution, source_scale)
         path = _uploaded_source(video)
         stat = path.stat()
         return (VERSION, str(path), stat.st_size, stat.st_mtime_ns, max_frames, working_resolution, source_scale)

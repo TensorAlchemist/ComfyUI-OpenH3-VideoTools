@@ -33,4 +33,4 @@ Use ComfyUI's Python environment to install the helper's `requirements.txt`. Pyt
 - [Singularity model card](https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity).
 - [MiniMax H3 community license](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/6818f6c32d12b210915e44ad56a4228c2608f160/LICENSE).
 
-Each component retains its own license. Version 0.1.9 is a pre-release; the current workflow configuration has not completed a full render.
+Each component retains its own license. Version 0.1.10 is a pre-release. A seven-second local render of the shared inference implementation completed successfully; see the [test report](TEST_REPORT.md) for its environment, checks and limits.

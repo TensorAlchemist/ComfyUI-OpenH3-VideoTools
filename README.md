@@ -2,7 +2,7 @@
 
 ComfyUI helpers and an editable OpenH3 workflow for local video input, learned latent upscaling, two-step refinement and MP4 export with the source soundtrack.
 
-**Version 0.1.9 is a pre-release.** The current configuration has not completed a full render. Runtime compatibility, quality and memory use remain unverified for this release. See [release status](docs/RELEASE_STATUS.md).
+**Version 0.1.10 is a pre-release.** A seven-second local test of the shared inference implementation completed at 2560 x 1440 with source audio. This update fixes linked-video cache fingerprint handling; its cache contract was checked separately from the render. See the [test report](docs/TEST_REPORT.md) and [release status](docs/RELEASE_STATUS.md) for the tested environment and limits.
 
 ## Quick start
 
@@ -15,7 +15,7 @@ ComfyUI helpers and an editable OpenH3 workflow for local video input, learned l
 
 ## Installation
 
-Requires Python 3.12 or newer and a ComfyUI build supporting native MiniMax H3, core Load Video, and the `comfy_api.latest` extension API. The development target was ComfyUI 0.43.0; compatibility with every other release is not established.
+Requires Python 3.12 or newer and a ComfyUI build supporting native MiniMax H3, core Load Video, and the `comfy_api.latest` extension API. The November 5 local render used ComfyUI 0.44.0 and Python 3.12.10 on an NVIDIA RTX 5060 Laptop GPU with 8 GB VRAM and 32 GB system RAM. Compatibility with other environments is not established by that test.
 
 ### Windows portable
 
@@ -38,7 +38,7 @@ Clone or extract the repository into `ComfyUI/custom_nodes/ComfyUI-OpenH3-VideoT
 python -m pip install -r ComfyUI/custom_nodes/ComfyUI-OpenH3-VideoTools/requirements.txt
 ```
 
-Adjust the relative path for your current directory. Platform-specific compatibility has not been tested for this pre-release.
+Adjust the relative path for your current directory. The recorded render used Windows portable; other platforms have not been validated by that test.
 
 ### Other required nodes
 
