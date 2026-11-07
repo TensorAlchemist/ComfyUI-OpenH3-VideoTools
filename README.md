@@ -2,12 +2,9 @@
 
 ## Quick start
 
-1. Use your normal ComfyUI installation and NVIDIA launcher, such as `run_nvidia_gpu.bat` for Windows portable. No special launcher or startup flags are required by this repository.
-2. Install this repository as `ComfyUI/custom_nodes/ComfyUI-OpenH3-VideoTools`, with `__init__.py` directly inside that folder. Install the other required nodes listed below.
-3. Install the helper requirements using the same Python environment that runs ComfyUI. Keep ComfyUI's existing PyTorch installation.
-4. Download the files in [Models and Custom Nodes](docs/DOWNLOAD_LINKS.md) and place them in the listed folders. Keep the publisher filenames.
-5. Restart ComfyUI, refresh the browser, and import [workflows/OpenH3_Regenerate2K.json](workflows/OpenH3_Regenerate2K.json).
-6. Upload a local SDR video, select your installed models, and set width and height manually in **Upscale Latent**. Read the preparation report and review the complete result before publishing it.
+1. Download [OpenH3 VideoTools v0.1.11](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools/releases/tag/v0.1.11). Extract `ComfyUI-OpenH3-VideoTools` into `ComfyUI/custom_nodes`, then install the requirements and the other nodes listed below.
+2. Download the weights from the [model guide](docs/DOWNLOAD_LINKS.md). Put both `open_h3_regenerate_2k_lora.safetensors` and `sharp_curve_branches.safetensors` in `ComfyUI/models/loras`.
+3. Restart ComfyUI with your normal launcher and import `OpenH3_Regenerate2K.json` from the release. Upload a local SDR video, enter the target dimensions in **Upscale Latent**, and run the workflow.
 
 ## Installation
 
@@ -15,16 +12,13 @@ Requires Python 3.12 or newer and a ComfyUI build supporting native MiniMax H3, 
 
 ### Windows portable
 
-From the portable distribution folder containing `python_embeded` and `ComfyUI`:
+Open Command Prompt in the portable folder that contains `python_embeded` and `ComfyUI`.
 
-```powershell
-git clone https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools.git .\ComfyUI\custom_nodes\ComfyUI-OpenH3-VideoTools
-.\python_embeded\python.exe -m pip install -r .\ComfyUI\custom_nodes\ComfyUI-OpenH3-VideoTools\requirements.txt
+```bat
+python_embeded\python.exe -m pip install -r "ComfyUI\custom_nodes\ComfyUI-OpenH3-VideoTools\requirements.txt"
 ```
 
-Alternatively, choose **Code > Download ZIP** on [the repository](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools). Extract its top-level folder into `ComfyUI/custom_nodes`, rename it `ComfyUI-OpenH3-VideoTools`, and ensure `__init__.py` is at its root rather than one folder deeper.
-
-Keep one active copy. Preserve any older VideoTools or `ComfyUI-TensorAlchemist-OpenH3-TiledDiffusion` backup outside `custom_nodes` to avoid duplicate node registrations. Start ComfyUI normally after setup; this repository does not replace launchers or change operating-system paging settings.
+Keep one active copy of OpenH3 VideoTools in `custom_nodes`.
 
 ### Other Python installations
 
@@ -34,7 +28,7 @@ Clone or extract the repository into `ComfyUI/custom_nodes/ComfyUI-OpenH3-VideoT
 python -m pip install -r ComfyUI/custom_nodes/ComfyUI-OpenH3-VideoTools/requirements.txt
 ```
 
-Adjust the relative path for your current directory. The recorded render used Windows portable; other platforms have not been validated by that test.
+Adjust the relative path for your current directory.
 
 ### Other required nodes
 

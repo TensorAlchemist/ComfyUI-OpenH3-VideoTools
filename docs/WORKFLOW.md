@@ -23,9 +23,3 @@ The supplied configuration uses two refinement steps and the `res_multistep` sam
 The first source audio track is aligned to the first video timestamp and prepared as 32 kHz stereo. Conditioning extends through native frame padding; the final mux receives source-duration audio. Silent input returns no source soundtrack and uses silent conditioning. A present but corrupt audio track fails clearly.
 
 The selected export uses VideoHelperSuite NVENC H.264 MP4. Input preparation, frame handling, audio processing and muxing still use CPU. Check the active output node's filename prefix for the destination. Diagnostic latent-save nodes remain disabled.
-
-## Pre-release status
-
-Version 0.1.10 fixes cache fingerprint handling for a linked video input. During ComfyUI's cache check, the linked value can be `None`; that case now returns the helper version and preparation controls while normal ancestor tracking handles the Load Video selection and file modification time. The execution-time source validation and real-video file-stat fingerprint remain unchanged. This does not add content hashing or change source sizing, duration, sampling, decoding or export.
-
-A seven-second local render of the shared inference implementation completed at 2560 x 1440, 24 FPS and 168 frames with source audio. It took 22 minutes 59.471 seconds in an existing warm session. The exact published 0.1.9 package also passed a separate CPU import and five-schema check. The 0.1.10 fingerprint change passed 13 separate CPU contract checks; a new full GPU render of 0.1.10 was not performed. See [TEST_REPORT.md](TEST_REPORT.md) for the environment, media checks, memory samples and coverage limits.

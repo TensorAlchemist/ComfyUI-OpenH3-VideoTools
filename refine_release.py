@@ -5,12 +5,17 @@
 import gc
 import logging
 import sys
+from pathlib import Path
 
 import folder_paths
 import nodes
 import comfy.model_management
 import comfy.model_prefetch
 from comfy_api.latest import io
+
+
+CURVE_FOLDER = "open_h3_regenerate"
+SHARP_CURVE_FILE = "sharp_curve_branches.safetensors"
 
 
 def _file_choices(folder, preferred):
@@ -21,6 +26,19 @@ def _file_choices(folder, preferred):
         options = []
     options.sort(key=lambda name: (name.replace("\\", "/").rsplit("/", 1)[-1] != preferred,
                                    name.lower()))
+    return options or ["(missing)"]
+
+
+def _curve_choices():
+    lora_folders = [Path(path) for path in folder_paths.get_folder_paths("loras")]
+    options = []
+    if folder_paths.get_full_path("loras", SHARP_CURVE_FILE):
+        options.append(SHARP_CURVE_FILE)
+
+    for name in _file_choices(CURVE_FOLDER, SHARP_CURVE_FILE):
+        path = folder_paths.get_full_path(CURVE_FOLDER, name)
+        if path and name not in options and not any(Path(path).is_relative_to(root) for root in lora_folders):
+            options.append(name)
     return options or ["(missing)"]
 
 
@@ -44,6 +62,10 @@ def _run_native_refinement(native, owned, av_latent, conditioning, noise, sample
     # frame disappear before outer GC. No MODEL or GUIDER enters a node output.
     model = guider = sample_result = None
     try:
+        if curve_branches == SHARP_CURVE_FILE:
+            path = folder_paths.get_full_path("loras", SHARP_CURVE_FILE)
+            if path:
+                folder_paths.add_model_folder_path(CURVE_FOLDER, str(Path(path).parent), is_default=True)
         model = nodes.UNETLoader().load_unet(unet_name, "default")[0]
         owned.append(model)
         model, report = native["OpenH3RegenerateModelPatch"]().patch(
@@ -72,6 +94,8 @@ def _run_native_refinement(native, owned, av_latent, conditioning, noise, sample
 class TAOpenH3RefineRelease(io.ComfyNode):
     @classmethod
     def define_schema(cls):
+        main_loras = [name for name in _file_choices("loras", "open_h3_regenerate_2k_lora.safetensors")
+                      if name != SHARP_CURVE_FILE]
         return io.Schema(
             node_id="TAOpenH3RefineRelease",
             display_name="H3 Refine and Release",
@@ -90,10 +114,8 @@ class TAOpenH3RefineRelease(io.ComfyNode):
                 io.Sigmas.Input("sigmas"),
                 io.Combo.Input("unet_name", options=_file_choices(
                     "diffusion_models", "Minimax-h3_Singularity_ref2va_v2_pruned_int8.safetensors")),
-                io.Combo.Input("main_lora", options=_file_choices(
-                    "loras", "open_h3_regenerate_2k_lora.safetensors")),
-                io.Combo.Input("curve_branches", options=_file_choices(
-                    "open_h3_regenerate", "sharp_curve_branches.safetensors")),
+                io.Combo.Input("main_lora", options=main_loras or ["(missing)"]),
+                io.Combo.Input("curve_branches", options=_curve_choices()),
                 io.Float.Input("strength", default=1.0, min=0.0, max=1.5, step=0.01),
                 io.Int.Input("head_chunks", default=4, min=1, max=56, step=1),
                 io.Int.Input("ff_chunks", default=4, min=1, max=64, step=1),

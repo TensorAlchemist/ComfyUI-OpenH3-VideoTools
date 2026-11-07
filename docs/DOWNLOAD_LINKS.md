@@ -10,9 +10,9 @@ Paths are relative to your ComfyUI folder. Download the publisher files separate
 | `models/vae/` | [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors?download=true) |
 | `models/latent_upscale_models/` | [minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/latent_upsampler/minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors?download=true) |
 | `models/loras/` | [open_h3_regenerate_2k_lora.safetensors](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/lora/open_h3_regenerate_2k_lora.safetensors?download=true) |
-| `models/open_h3_regenerate/lora/` | [sharp_curve_branches.safetensors](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/lora/sharp_curve_branches.safetensors?download=true) |
+| `models/loras/` | [sharp_curve_branches.safetensors](https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K/resolve/5809c33730c18b6b1c827b40974855a4288641b3/lora/sharp_curve_branches.safetensors?download=true) |
 
-In **Refine Latent**, select `open_h3_regenerate_2k_lora.safetensors` for `main_lora` and `lora/sharp_curve_branches.safetensors` for `curve_branches`. Windows may display the folder separator as a backslash. Sharp branches belong in their dedicated folder; they are not an ordinary LoRA.
+**Refine Latent** uses `open_h3_regenerate_2k_lora.safetensors` for `main_lora` and `sharp_curve_branches.safetensors` for `curve_branches`. OpenH3 VideoTools 0.1.11 finds both files in `models/loras/`.
 
 In **Latent Upscale Model**, select `minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors`.
 
@@ -33,4 +33,4 @@ Use ComfyUI's Python environment to install the helper's `requirements.txt`. Pyt
 - [Singularity model card](https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity).
 - [MiniMax H3 community license](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/6818f6c32d12b210915e44ad56a4228c2608f160/LICENSE).
 
-Each component retains its own license. Version 0.1.10 is a pre-release. A seven-second local render of the shared inference implementation completed successfully; see the [test report](TEST_REPORT.md) for its environment, checks and limits.
+Each component retains its own license.
