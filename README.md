@@ -11,7 +11,7 @@
 
 ## Installation
 
-Requires Python 3.12 or newer and a ComfyUI build supporting native MiniMax H3, core Load Video, and the `comfy_api.latest` extension API. The November 5 local render used ComfyUI 0.44.0 and Python 3.12.10 on an NVIDIA RTX 5060 Laptop GPU with 8 GB VRAM and 32 GB system RAM. Compatibility with other environments is not established by that test.
+Requires Python 3.12 or newer and a ComfyUI build supporting native MiniMax H3, core Load Video, and the `comfy_api.latest` extension API.
 
 ### Windows portable
 
