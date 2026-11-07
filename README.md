@@ -1,9 +1,5 @@
 # OpenH3 VideoTools
 
-ComfyUI helpers and an editable OpenH3 workflow for local video input, learned latent upscaling, two-step refinement and MP4 export with the source soundtrack.
-
-**Version 0.1.10 is a pre-release.** A seven-second local test of the shared inference implementation completed at 2560 x 1440 with source audio. This update fixes linked-video cache fingerprint handling; its cache contract was checked separately from the render. See the [test report](docs/TEST_REPORT.md) and [release status](docs/RELEASE_STATUS.md) for the tested environment and limits.
-
 ## Quick start
 
 1. Use your normal ComfyUI installation and NVIDIA launcher, such as `run_nvidia_gpu.bat` for Windows portable. No special launcher or startup flags are required by this repository.
