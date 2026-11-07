@@ -22,4 +22,4 @@ The supplied configuration uses two refinement steps and the `res_multistep` sam
 
 The first source audio track is aligned to the first video timestamp and prepared as 32 kHz stereo. Conditioning extends through native frame padding; the final mux receives source-duration audio. Silent input returns no source soundtrack and uses silent conditioning. A present but corrupt audio track fails clearly.
 
-The selected export uses VideoHelperSuite NVENC H.264 MP4. Input preparation, frame handling, audio processing and muxing still use CPU. Check the active output node's filename prefix for the destination. Diagnostic latent-save nodes remain disabled.
+The current workflow exports H.264 MP4 through VideoHelperSuite using FFmpeg’s `libx264` encoder at CRF 19. Input preparation, frame handling, audio processing, encoding and muxing use CPU. The workflow enables Save Metadata, which embeds the prompt and workflow in the output when available. Check the active output node's filename prefix for the destination. Diagnostic latent-save nodes remain disabled.

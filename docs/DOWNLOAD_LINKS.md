@@ -24,7 +24,7 @@ In **Latent Upscale Model**, select `minimax_h3_latent_upscaler_3d_conv_v1_bf16.
 - [VideoHelperSuite](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite).
 - [ComfyUI with native MiniMax H3 support](https://github.com/Comfy-Org/ComfyUI).
 
-Use ComfyUI's Python environment to install the helper's `requirements.txt`. Python 3.12+, PyAV and imageio-ffmpeg are required. The selected export needs working NVIDIA NVENC support. Start ComfyUI with your normal launcher. See the [installation guide](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools#installation).
+Use ComfyUI's Python environment to install the helper's `requirements.txt`. Python 3.12+, PyAV and imageio-ffmpeg are required. The current workflow uses VideoHelperSuite H.264 MP4 export and needs FFmpeg with `libx264` support. Start ComfyUI with your normal launcher. See the [installation guide](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools#installation).
 
 ## Source and terms
 

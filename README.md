@@ -4,7 +4,7 @@
 
 1. Download [OpenH3 VideoTools v0.1.11](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools/releases/tag/v0.1.11). Extract `ComfyUI-OpenH3-VideoTools` into `ComfyUI/custom_nodes`, then install the requirements and the other nodes listed below.
 2. Download the weights from the [model guide](docs/DOWNLOAD_LINKS.md). Put both `open_h3_regenerate_2k_lora.safetensors` and `sharp_curve_branches.safetensors` in `ComfyUI/models/loras`.
-3. Restart ComfyUI with your normal launcher and import `OpenH3_Regenerate2K.json` from the release. Upload a local SDR video, enter the target dimensions in **Upscale Latent**, and run the workflow.
+3. Restart ComfyUI with your normal launcher and import the current [OpenH3_Regenerate2K.json workflow](https://raw.githubusercontent.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools/main/workflows/OpenH3_Regenerate2K.json). Upload a local SDR video, enter the target dimensions in **Upscale Latent**, and run the workflow.
 
 ## Installation
 
@@ -37,7 +37,7 @@ Adjust the relative path for your current directory.
 - [Kosinkadink/ComfyUI-VideoHelperSuite](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite): MP4 export.
 - [ComfyUI](https://github.com/Comfy-Org/ComfyUI): native H3 model, VAE, latent upscaler and video nodes.
 
-Python requirements include PyAV and imageio-ffmpeg. The selected export also requires an FFmpeg build with working `h264_nvenc` and a compatible NVIDIA driver. No executable binaries, model weights or media are included.
+Python requirements include PyAV and imageio-ffmpeg. The current workflow uses VideoHelperSuite H.264 MP4 export and requires an FFmpeg build with `libx264` support. No executable binaries, model weights or media are included.
 
 ## Controls
 
