@@ -35,7 +35,17 @@ def _curve_choices():
     if folder_paths.get_full_path("loras", SHARP_CURVE_FILE):
         options.append(SHARP_CURVE_FILE)
 
-    for name in _file_choices(CURVE_FOLDER, SHARP_CURVE_FILE):
+    try:
+        legacy_choices = _file_choices(CURVE_FOLDER, SHARP_CURVE_FILE)
+    except FileNotFoundError:
+        # ComfyUI can retain a filename cache entry after a model folder is removed.
+        filename_cache = getattr(folder_paths, "filename_list_cache", None)
+        if not isinstance(filename_cache, dict):
+            raise
+        filename_cache.pop(CURVE_FOLDER, None)
+        legacy_choices = _file_choices(CURVE_FOLDER, SHARP_CURVE_FILE)
+
+    for name in legacy_choices:
         path = folder_paths.get_full_path(CURVE_FOLDER, name)
         if path and name not in options and not any(Path(path).is_relative_to(root) for root in lora_folders):
             options.append(name)

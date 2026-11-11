@@ -19,7 +19,7 @@ import torch
 WIDTH, HEIGHT, FPS, SAMPLE_RATE = 1024, 576, 24, 32000
 WORKING_RESOLUTIONS = {"source": None, "1024x576": (1024, 576), "1280x720": (1280, 720)}
 MAX_FRAMES = 2**31 - 1
-VERSION = "0.1.11"
+VERSION = "0.1.12"
 # Force a real media demuxer before probing: never let a renamed playlist
 # fetch URLs or follow a concat manifest's local paths.
 FORMATS = {

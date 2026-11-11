@@ -2,7 +2,7 @@
 
 ## Quick start
 
-1. Download [OpenH3 VideoTools v0.1.11](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools/releases/tag/v0.1.11). Extract `ComfyUI-OpenH3-VideoTools` into `ComfyUI/custom_nodes`, then install the requirements and the other nodes listed below.
+1. Download [OpenH3 VideoTools v0.1.12](https://github.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools/releases/tag/v0.1.12). Extract `ComfyUI-OpenH3-VideoTools` into `ComfyUI/custom_nodes`, then install the requirements and the other nodes listed below.
 2. Download the weights from the [model guide](docs/DOWNLOAD_LINKS.md). Put both `open_h3_regenerate_2k_lora.safetensors` and `sharp_curve_branches.safetensors` in `ComfyUI/models/loras`.
 3. Restart ComfyUI with your normal launcher and import the current [OpenH3_Regenerate2K.json workflow](https://raw.githubusercontent.com/TensorAlchemist/ComfyUI-OpenH3-VideoTools/main/workflows/OpenH3_Regenerate2K.json). Upload a local SDR video, enter the target dimensions in **Upscale Latent**, and run the workflow.
 
